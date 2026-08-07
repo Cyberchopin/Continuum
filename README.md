@@ -160,9 +160,9 @@ tests/                       Product, policy, and artifact tests
 
 ## Honest implementation boundary
 
-The public judge experience uses deterministic demo data so every reviewer can reproduce the contradiction flow without credentials. The policy engine, evaluation suite, CockroachDB schema, and Lambda adapter are executable and production-shaped. They become a live end-to-end cloud system only after the owner connects real CockroachDB Cloud and AWS accounts.
+The public judge experience uses deterministic demo data so every reviewer can reproduce the contradiction flow without credentials. Separately, the owner deployed the non-demo system to AWS in `us-east-1`, invoked the Lambda against Amazon Bedrock and CockroachDB Cloud, and committed a real hash-linked action receipt on **August 7, 2026**.
 
-`evidence/cloud-proof.example.json` is explicitly not proof. A real claim is made only when the non-demo capture script produces `evidence/cloud-proof.json`. Design-partner evidence also remains at 0/3 until real practitioners consent to anonymous, role-level reporting of an objection and the product change it caused.
+[`evidence/cloud-proof.json`](evidence/cloud-proof.json) records the resulting AWS request, CockroachDB receipt, trace, evidence digest, and receipt hash. It contains no credentials, database URL, secret ARN, account ID, or recalled memory content. `evidence/cloud-proof.example.json` remains explicitly non-evidence. Design-partner evidence remains at 0/3 until real practitioners consent to anonymous, role-level reporting of an objection and the product change it caused.
 
 The region-loss button is a product simulation; it does not claim to mutate live infrastructure.
 
