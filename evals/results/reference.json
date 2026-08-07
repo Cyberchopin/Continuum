@@ -1,0 +1,31 @@
+{
+  "suite": "Continuum Memory Firewall microbenchmark v1",
+  "disclosure": "Local in-process policy and receipt benchmark. It excludes network, Bedrock, CockroachDB, and third-party adapter latency.",
+  "environment": {
+    "node": "v24.14.0",
+    "platform": "linux",
+    "architecture": "x64"
+  },
+  "gauntlet": {
+    "scenarios": 72,
+    "corpusDigest": "335bde8abbc4380deb92f3032b3ee619b188ef4bbc9c611881b7066b5e9866c0",
+    "continuumAccuracy": 1,
+    "naiveAccuracy": 0.2361111111111111,
+    "continuumUnsafeRecall": 1,
+    "naiveUnsafeRecall": 0.08333333333333333
+  },
+  "policyLatencyMicroseconds": {
+    "evaluations": 72000,
+    "p50": 0.791,
+    "p95": 1.081,
+    "p99": 1.883,
+    "throughputPerSecond": 1073438
+  },
+  "receiptIntegrity": {
+    "receipts": 1000,
+    "validChain": true,
+    "verificationMs": 1.644,
+    "tamperDetected": true,
+    "tamperIndex": 513
+  }
+}

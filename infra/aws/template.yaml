@@ -1,0 +1,48 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Continuum memory firewall — AWS Lambda + Bedrock + CockroachDB evidence ledger
+
+Parameters:
+  DatabaseSecretArn:
+    Type: String
+    Description: AWS Secrets Manager ARN containing DATABASE_URL as JSON or a raw connection string
+  BedrockModelId:
+    Type: String
+    Default: amazon.titan-embed-text-v2:0
+  EnforcementMode:
+    Type: String
+    Default: shadow
+    AllowedValues: [shadow, enforce]
+
+Resources:
+  ContinuumMemoryFirewall:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: continuum-memory-firewall
+      CodeUri: ../lambda/
+      Handler: handler.handler
+      Runtime: nodejs24.x
+      Architectures: [arm64]
+      MemorySize: 512
+      Timeout: 20
+      Tracing: Active
+      Environment:
+        Variables:
+          DATABASE_SECRET_ARN: !Ref DatabaseSecretArn
+          BEDROCK_EMBED_MODEL_ID: !Ref BedrockModelId
+          CONTINUUM_DEMO_MODE: "false"
+          CONTINUUM_DEFAULT_ENFORCEMENT_MODE: !Ref EnforcementMode
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: bedrock:InvokeModel
+              Resource: !Sub arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/${BedrockModelId}
+            - Effect: Allow
+              Action: secretsmanager:GetSecretValue
+              Resource: !Ref DatabaseSecretArn
+
+Outputs:
+  FunctionName:
+    Value: !Ref ContinuumMemoryFirewall
+  FunctionArn:
+    Value: !GetAtt ContinuumMemoryFirewall.Arn
