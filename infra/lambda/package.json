@@ -6,7 +6,9 @@
   "engines": { "node": ">=22" },
   "scripts": {
     "seed:proof": "node seed-proof.mjs",
-    "capture:proof": "node capture-proof.mjs"
+    "capture:proof": "node capture-proof.mjs",
+    "seed:matrix": "node seed-matrix.mjs",
+    "capture:matrix": "node capture-matrix.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.873.0",
