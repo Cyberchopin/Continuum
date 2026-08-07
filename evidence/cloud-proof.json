@@ -1,0 +1,24 @@
+{
+  "schema": "continuum-cloud-proof/1.0",
+  "capturedAt": "2026-08-07T20:15:01.176Z",
+  "disclosure": "Generated only after a non-demo AWS Lambda invocation committed a CockroachDB action receipt.",
+  "aws": {
+    "region": "us-east-1",
+    "requestId": "0c649827-9582-4040-8258-b2ffcedaa5f9",
+    "functionName": "continuum-memory-firewall"
+  },
+  "cockroach": {
+    "receiptId": "90ee113a-dc0a-4303-b4bd-5fd17a6d3537",
+    "createdAt": "2026-08-07T20:15:01.116Z"
+  },
+  "policy": {
+    "version": "continuum-admissibility/0.3",
+    "decision": "observe_would_block",
+    "enforcementMode": "shadow"
+  },
+  "integrity": {
+    "traceId": "9b48df19dde027f72320ef30679bcf43",
+    "evidenceDigest": "3261cd2b4c2ea23e757a9cacf9898eac4332f22bc34310653356ef8b119d05d4",
+    "receiptHash": "59442fec1dae9044613a7a15ba4ffea9f41d6928432f42ffc1e9896c52d5d6cd"
+  }
+}
