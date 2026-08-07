@@ -75,6 +75,18 @@ The checked-in reference local Node 24/x64 run evaluates 72,000 candidates with 
 
 This is an executable admission-policy benchmark, not a claim of state-of-the-art conversational recall or superiority over a third-party memory product. The generated corpus, checked-in labels, SHA-256 digest, confusion matrices, benchmark, and CI assertion are public in [`evals/`](evals/).
 
+### Verified live cloud decision matrix
+
+On August 7, 2026, the non-demo AWS Lambda committed three CockroachDB action receipts and matched every expected policy outcome:
+
+| Live case | Admitted / rejected | Verified decision |
+|---|---:|---|
+| Contradiction + Shadow | 3 / 1 | `observe_would_block` |
+| Contradiction + Enforce | 3 / 1 | `hold_human_review` |
+| Safe control + Enforce | 3 / 0 | `evidence_admissible` |
+
+The complete credential-free trace, receipt, digest, and hash metadata is checked in at [`evidence/cloud-proof-matrix.json`](evidence/cloud-proof-matrix.json). The capture runner fails instead of writing evidence if any live decision differs from its expected result.
+
 ## Real adapters, fail-closed metadata
 
 [`infra/adapters/`](infra/adapters/) contains vendor-neutral `continuum-candidate/1.0` adapters for Mem0 search results and Graphiti edges. Missing tenant, subject, purpose, consent, lifecycle status, confidence, or similarity is never invented; the candidate is rejected until the upstream memory includes sufficient governance metadata.
@@ -151,7 +163,7 @@ infra/aws/                   AWS SAM deployment
 infra/adapters/              Mem0 + Graphiti normalization contracts
 infra/cloud/                 Real-cloud doctor and proof capture
 infra/mcp/                   Managed MCP operating procedure
-evidence/                    Redacted cloud-proof schema
+evidence/                    Verified cloud proofs and proof schema
 research/                    Design-partner protocol and evidence ledger
 docs/                        Architecture, API, observability, threat model
 submission/                  Devpost copy, demo script, checklist
@@ -162,7 +174,7 @@ tests/                       Product, policy, and artifact tests
 
 The public judge experience uses deterministic demo data so every reviewer can reproduce the contradiction flow without credentials. Separately, the owner deployed the non-demo system to AWS in `us-east-1`, invoked the Lambda against Amazon Bedrock and CockroachDB Cloud, and committed a real hash-linked action receipt on **August 7, 2026**.
 
-[`evidence/cloud-proof.json`](evidence/cloud-proof.json) records the resulting AWS request, CockroachDB receipt, trace, evidence digest, and receipt hash. It contains no credentials, database URL, secret ARN, account ID, or recalled memory content. `evidence/cloud-proof.example.json` remains explicitly non-evidence. Design-partner evidence remains at 0/3 until real practitioners consent to anonymous, role-level reporting of an objection and the product change it caused.
+[`evidence/cloud-proof.json`](evidence/cloud-proof.json) records the initial real invocation, while [`evidence/cloud-proof-matrix.json`](evidence/cloud-proof-matrix.json) records verified Shadow, Enforce, and safe-control outcomes. They contain no credentials, database URL, secret ARN, account ID, or recalled memory content. `evidence/cloud-proof.example.json` remains explicitly non-evidence. Design-partner evidence remains at 0/3 until real practitioners consent to anonymous, role-level reporting of an objection and the product change it caused.
 
 The region-loss button is a product simulation; it does not claim to mutate live infrastructure.
 
