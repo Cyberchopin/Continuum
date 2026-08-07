@@ -43,6 +43,21 @@ test("cloud proof path uses Secrets Manager and refuses demo evidence", async ()
   assert.match(capture, /aws_request_id/);
 });
 
+test("cloud proof matrix verifies shadow, enforce, and safe-control decisions", async () => {
+  const seed = await read("infra/lambda/seed-matrix.mjs");
+  const capture = await read("infra/lambda/capture-matrix.mjs");
+  const packageJson = JSON.parse(await read("infra/lambda/package.json"));
+  assert.match(seed, /'contradicts'/);
+  assert.match(seed, /contentPrinted: false/);
+  for (const decision of ["observe_would_block", "hold_human_review", "evidence_admissible"]) {
+    assert.ok(capture.includes(decision), `missing expected matrix decision: ${decision}`);
+  }
+  assert.match(capture, /returned demo output/);
+  assert.match(capture, /memoryContentPrinted: false/);
+  assert.equal(packageJson.scripts["seed:matrix"], "node seed-matrix.mjs");
+  assert.equal(packageJson.scripts["capture:matrix"], "node capture-matrix.mjs");
+});
+
 test("repository contains no populated secret values", async () => {
   const env = await read(".env.example");
   assert.match(env, /REPLACE_ME/);
