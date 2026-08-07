@@ -1,0 +1,60 @@
+{
+  "schema": "continuum-cloud-proof-matrix/1.0",
+  "capturedAt": "2026-08-07T22:01:06.339Z",
+  "disclosure": "Generated only after three non-demo AWS Lambda invocations committed CockroachDB action receipts and matched their expected policy decisions.",
+  "aws": {
+    "region": "us-east-1",
+    "functionName": "continuum-memory-firewall"
+  },
+  "cases": [
+    {
+      "id": "contradiction-shadow",
+      "awsRequestId": "8029543a-41e4-47d3-b3bb-b01e3cb58ecb",
+      "cockroachReceiptId": "5c9caa4e-24ab-4372-a73c-a8d4e60236e2",
+      "createdAt": "2026-08-07T22:01:05.858Z",
+      "decision": "observe_would_block",
+      "policyDecision": "hold_human_review",
+      "enforcementMode": "shadow",
+      "humanReviewRequired": true,
+      "admittedCount": 3,
+      "rejectedCount": 1,
+      "policyVersion": "continuum-admissibility/0.3",
+      "traceId": "4c8616fde8c45e4061191bd9bc5fec24",
+      "evidenceDigest": "95713c13ea45e4fde8a8463c728a39da7112b599c812a0cc9a13af5fbe2bf3aa",
+      "receiptHash": "fb705b923d7f9ff10c503c60f0b7c2fd9f32039d4e61eb6de1dfffd86e7e425d"
+    },
+    {
+      "id": "contradiction-enforce",
+      "awsRequestId": "b27ce081-31e0-466d-a789-f313924dc03c",
+      "cockroachReceiptId": "b8bdfc1f-7946-43c0-93fb-a327a8968b2d",
+      "createdAt": "2026-08-07T22:01:06.106Z",
+      "decision": "hold_human_review",
+      "policyDecision": "hold_human_review",
+      "enforcementMode": "enforce",
+      "humanReviewRequired": true,
+      "admittedCount": 3,
+      "rejectedCount": 1,
+      "policyVersion": "continuum-admissibility/0.3",
+      "traceId": "0f12f640b828e14fa43ab27f0b22f312",
+      "evidenceDigest": "95713c13ea45e4fde8a8463c728a39da7112b599c812a0cc9a13af5fbe2bf3aa",
+      "receiptHash": "7ef3491075f8181c3188babf6a652b8cb3051303418d4a81612b6886b1d083b2"
+    },
+    {
+      "id": "safe-control-enforce",
+      "awsRequestId": "1475e538-d7c7-494a-835c-73c2ab2996a2",
+      "cockroachReceiptId": "1ed742b4-823d-4985-a955-3876d17183ab",
+      "createdAt": "2026-08-07T22:01:06.310Z",
+      "decision": "evidence_admissible",
+      "policyDecision": "evidence_admissible",
+      "enforcementMode": "enforce",
+      "humanReviewRequired": false,
+      "admittedCount": 3,
+      "rejectedCount": 0,
+      "policyVersion": "continuum-admissibility/0.3",
+      "traceId": "a208c1360bc7a0c7ffc17d85d255c641",
+      "evidenceDigest": "1a1044e88e0faaa2cfa01f241640d08323a9cf81ee251b7b0eaa0bf855d05792",
+      "receiptHash": "0b6f5656c8d351ff4a809f64b86d8604bd6f05504dcbcf48729564321e593426"
+    }
+  ],
+  "memoryContentPrinted": false
+}
