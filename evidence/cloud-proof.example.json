@@ -1,0 +1,5 @@
+{
+  "schema": "continuum-cloud-proof/1.0",
+  "status": "pending-real-cloud-run",
+  "disclosure": "This example is not evidence. Run npm run cloud:proof against the non-demo Lambda to create cloud-proof.json."
+}
