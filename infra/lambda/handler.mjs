@@ -115,7 +115,7 @@ export async function handler(event, context) {
           WHERE m.tenant_id=$1::UUID
             AND m.subject_key=$2
             AND m.purpose=$3
-            AND $4 = ANY(m.consent_scope)
+            AND $4::STRING = ANY(m.consent_scope)
             AND m.status='admissible'
             AND m.valid_from <= now()
             AND (m.valid_until IS NULL OR m.valid_until > now())
