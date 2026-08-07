@@ -24,6 +24,12 @@ test("Lambda gates recall before writing an action receipt", async () => {
   assert.match(source, /INSERT INTO action_receipts/);
 });
 
+test("Lambda gives CockroachDB an explicit consent-scope parameter type", async () => {
+  const source = await read("infra/lambda/handler.mjs");
+  assert.match(source, /\$4::STRING = ANY\(m\.consent_scope\)/);
+  assert.doesNotMatch(source, /\$4 = ANY\(m\.consent_scope\)/);
+});
+
 test("cloud proof path uses Secrets Manager and refuses demo evidence", async () => {
   const template = await read("infra/aws/template.yaml");
   const handler = await read("infra/lambda/handler.mjs");
