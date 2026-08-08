@@ -1,0 +1,51 @@
+{
+  "schema": "continuum-managed-mcp-proof/1.0",
+  "capturedAtLocal": "2026-08-07T15:28:00-07:00",
+  "disclosure": "Produced by an OAuth-authenticated, read-only CockroachDB Cloud Managed MCP query from OpenAI Codex. No identifiers, hashes, memory content, credentials, secrets, account IDs, or connection strings were retained.",
+  "client": "OpenAI Codex",
+  "server": "CockroachDB Cloud Managed MCP",
+  "authorization": {
+    "method": "OAuth",
+    "permission": "read-only"
+  },
+  "scope": {
+    "cluster": "mud-scylla",
+    "database": "continuum",
+    "schema": "public"
+  },
+  "tables": [
+    "action_receipts",
+    "memories",
+    "memory_edges",
+    "tombstones"
+  ],
+  "recentActionReceipts": [
+    {
+      "subjectKey": "deployment:payments-v3-safe",
+      "decision": "evidence_admissible",
+      "enforcementMode": "enforce",
+      "humanReviewRequired": false,
+      "admittedCount": 3,
+      "rejectedCount": 0,
+      "createdAt": "2026-08-07T22:01:06.310415Z"
+    },
+    {
+      "subjectKey": "deployment:payments-v3-risk",
+      "decision": "hold_human_review",
+      "enforcementMode": "enforce",
+      "humanReviewRequired": true,
+      "admittedCount": 3,
+      "rejectedCount": 1,
+      "createdAt": "2026-08-07T22:01:06.106488Z"
+    },
+    {
+      "subjectKey": "deployment:payments-v3-risk",
+      "decision": "observe_would_block",
+      "enforcementMode": "shadow",
+      "humanReviewRequired": true,
+      "admittedCount": 3,
+      "rejectedCount": 1,
+      "createdAt": "2026-08-07T22:01:05.858712Z"
+    }
+  ]
+}
