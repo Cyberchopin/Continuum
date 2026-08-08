@@ -2,45 +2,53 @@
 
 ## Before recording
 
-- [ ] Set browser to 1440 × 900, 100% zoom, hide bookmarks and personal tabs.
-- [ ] Open a fresh session so all four memories begin admissible.
+- [ ] Set the browser and VS Code capture area to 1440 × 900 at 100% zoom.
+- [ ] Hide bookmarks, email, CockroachDB navigation, AWS console, terminals, account names, and personal tabs.
+- [ ] Open a fresh Continuum session so the four interactive demo memories begin admissible.
 - [ ] Confirm the live title is `Continuum — Agent Memory, Under Oath`.
-- [ ] Rehearse once; target 2:42 and never exceed 3:00.
-- [ ] Keep cursor movements slow and intentional.
-- [ ] Do not show AWS, CockroachDB, email, tokens, account IDs, or browser password UI.
+- [ ] Open the README at **Verified live cloud decision matrix**.
+- [ ] Prepare a sanitized Managed MCP result showing only table names and the three decision rows.
+- [ ] Rehearse at 2:50; the final export must remain under 3:00.
+- [ ] Use original narration and no unlicensed music or third-party footage.
 
-## Required shots
+## Required shots and timing
 
-- [ ] Hero thesis and memory orbit.
-- [ ] Initial deployment verdict at 87%.
-- [ ] Contradiction injection and 58% Shadow-mode warning.
-- [ ] Switch from Shadow to Enforce and show the hold verdict.
-- [ ] Memory Gauntlet 72/72 vs naive threshold 17/72, with local-only latency disclosure visible.
-- [ ] 1,000-receipt verification and mutation detection visible.
-- [ ] Mem0 + Graphiti adapter contracts visible in the repository.
-- [ ] Provenance/validity/consent/conflict fields.
-- [ ] Revocation/tombstone action.
-- [ ] CockroachDB vector schema and Lambda policy query.
-- [ ] Region-loss simulation.
-- [ ] Final five-rule memory contract.
+- [ ] `0:00–0:16` — Hero thesis and memory orbit.
+- [ ] `0:16–0:32` — Run the Memory Trial.
+- [ ] `0:32–0:58` — Evidence cards and admissibility fields.
+- [ ] `0:58–1:22` — Inject contradiction; show Shadow then Enforce.
+- [ ] `1:22–1:49` — Real cloud matrix: Shadow, Enforce, safe control.
+- [ ] `1:49–2:06` — Sanitized Managed MCP read-only audit.
+- [ ] `2:06–2:28` — Gauntlet 72/72 vs 17/72, latency disclosure, receipt mutation detection.
+- [ ] `2:28–2:42` — Architecture: CockroachDB vector + ledger, Lambda, Bedrock, MCP.
+- [ ] `2:42–2:50` — Final memory contract and close.
 
-## Devpost
+## Sensitive-information crop
 
-- [ ] Public GitHub URL; default branch contains MIT `LICENSE`.
-- [ ] GitHub Actions check is green and repository is not empty.
-- [ ] Under-three-minute public video URL.
-- [ ] Live demo URL.
-- [ ] CockroachDB tools: Managed MCP + Distributed Vector Indexing.
-- [ ] AWS service: Lambda; Bedrock also documented.
-- [ ] All team members and third-party assets disclosed.
-- [ ] Replace `[PUBLIC_GITHUB_URL]` and `[VIDEO_URL]` placeholders.
-- [ ] Verify the submission is new work from the contest period.
-- [ ] Submit before Aug 18, 2026, 5:00 PM EDT / 2:00 PM PDT.
+- [ ] Do not show AWS account IDs, budgets, emails, browser password UI, Secrets Manager pages, secret ARNs, connection strings, SQL passwords, OAuth tokens, or MCP configuration files.
+- [ ] Do not show receipt IDs, request IDs, trace IDs, or hashes in the video; show the sanitized summary table instead.
+- [ ] Do not show recalled memory content in the Managed MCP shot.
+- [ ] Verify the screen recording contains no notification pop-ups.
+
+## Devpost requirements
+
+- [ ] Public GitHub repository and visible MIT `LICENSE`.
+- [ ] GitHub Actions is green on `main`.
+- [ ] Functional public demo URL.
+- [ ] Public YouTube or Vimeo video strictly under three minutes.
+- [ ] CockroachDB tool 1: Distributed Vector Indexing, shown in architecture and real cloud matrix.
+- [ ] CockroachDB tool 2: Cloud Managed MCP, shown performing the read-only live receipt audit.
+- [ ] AWS services: Lambda, Bedrock Titan Text Embeddings V2, and Secrets Manager.
+- [ ] Devpost story uses the latest real-cloud and MCP language.
+- [ ] Replace `[VIDEO_URL]` after upload.
+- [ ] Submit before **August 18, 2026, 5:00 PM EDT / 2:00 PM PDT**.
 
 ## Truth check
 
-- [ ] Call the site an interactive deterministic demo until live cloud credentials are connected.
+- [ ] Call the website an interactive deterministic judge experience, not the live backend.
+- [ ] Point real-cloud claims to `evidence/cloud-proof.json` and `evidence/cloud-proof-matrix.json`.
+- [ ] Point Managed MCP claims to `evidence/managed-mcp-proof.json`.
+- [ ] Do not claim a real regional failover; the UI button is a simulation.
 - [ ] Do not claim design-partner validation while the evidence ledger remains 0/3.
-- [ ] Do not call simulated failover a live infrastructure event.
-- [ ] Do not claim user testing that has not occurred.
-- [ ] Every sponsor-technology claim points to visible code or a real deployment.
+- [ ] Do not claim end-to-end network latency; published microbenchmarks cover the local policy path only.
+- [ ] Every sponsor-technology claim maps to visible code or checked-in real evidence.
