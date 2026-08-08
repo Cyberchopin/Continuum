@@ -87,6 +87,10 @@ On August 7, 2026, the non-demo AWS Lambda committed three CockroachDB action re
 
 The complete credential-free trace, receipt, digest, and hash metadata is checked in at [`evidence/cloud-proof-matrix.json`](evidence/cloud-proof-matrix.json). The capture runner fails instead of writing evidence if any live decision differs from its expected result.
 
+### Verified Managed MCP audit
+
+OpenAI Codex authenticated to CockroachDB Cloud Managed MCP with OAuth and **read-only** permission, inspected the live `continuum.public` schema, and returned the same three recent action-receipt outcomes shown above. The sanitized proof is checked in at [`evidence/managed-mcp-proof.json`](evidence/managed-mcp-proof.json); it retains no credentials, account IDs, connection strings, receipt IDs, hashes, trace IDs, or memory content.
+
 ## Real adapters, fail-closed metadata
 
 [`infra/adapters/`](infra/adapters/) contains vendor-neutral `continuum-candidate/1.0` adapters for Mem0 search results and Graphiti edges. Missing tenant, subject, purpose, consent, lifecycle status, confidence, or similarity is never invented; the candidate is rejected until the upstream memory includes sufficient governance metadata.
@@ -127,7 +131,7 @@ flowchart LR
 ### Sponsor technology
 
 - **CockroachDB Distributed Vector Indexing:** `VECTOR(1024)`, cosine search, exact tenant prefix.
-- **CockroachDB Cloud Managed MCP:** least-privilege, read-only inspection of schemas, conflict edges, receipts, and regional health.
+- **CockroachDB Cloud Managed MCP:** OAuth-authenticated, read-only inspection of the live schema and action receipts, with sanitized checked-in proof.
 - **CockroachDB transactions and multi-region model:** memories, contradictions, revocations, and evidence receipts share one ledger.
 - **AWS Lambda:** stateless shadow/enforce admission endpoint.
 - **Amazon Bedrock:** Titan Text Embeddings V2 for semantic candidate retrieval.
@@ -174,7 +178,7 @@ tests/                       Product, policy, and artifact tests
 
 The public judge experience uses deterministic demo data so every reviewer can reproduce the contradiction flow without credentials. Separately, the owner deployed the non-demo system to AWS in `us-east-1`, invoked the Lambda against Amazon Bedrock and CockroachDB Cloud, and committed a real hash-linked action receipt on **August 7, 2026**.
 
-[`evidence/cloud-proof.json`](evidence/cloud-proof.json) records the initial real invocation, while [`evidence/cloud-proof-matrix.json`](evidence/cloud-proof-matrix.json) records verified Shadow, Enforce, and safe-control outcomes. They contain no credentials, database URL, secret ARN, account ID, or recalled memory content. `evidence/cloud-proof.example.json` remains explicitly non-evidence. Design-partner evidence remains at 0/3 until real practitioners consent to anonymous, role-level reporting of an objection and the product change it caused.
+[`evidence/cloud-proof.json`](evidence/cloud-proof.json) records the initial real invocation, [`evidence/cloud-proof-matrix.json`](evidence/cloud-proof-matrix.json) records verified Shadow, Enforce, and safe-control outcomes, and [`evidence/managed-mcp-proof.json`](evidence/managed-mcp-proof.json) records the sanitized read-only Managed MCP audit. They contain no credentials, database URL, secret ARN, account ID, or recalled memory content. `evidence/cloud-proof.example.json` remains explicitly non-evidence. Design-partner evidence remains at 0/3 until real practitioners consent to anonymous, role-level reporting of an objection and the product change it caused.
 
 The region-loss button is a product simulation; it does not claim to mutate live infrastructure.
 
